@@ -3,12 +3,17 @@ import axios from "axios";
 import { JsonApi } from "./Service/jsonApi";
 
 export default function App() {
-  const getData = () => {
-    axios.all([JsonApi.get("/posts/1"), JsonApi.get("/posts")]).then(
-      axios.spread((...response) => {
-        console.log(response);
-      })
-    );
+  const getData = async () => {
+    let response = await axios.all([JsonApi.get("/posts/1"), JsonApi.get("/posts")])
+    console.log(response);
+    
+    //then method
+    
+    //axios.all([JsonApi.get("/posts/1"), JsonApi.get("/posts")]).then(
+    //axios.spread((...response) => {
+    //console.log(response);
+    //})
+   //); 
   };
 
   getData();
